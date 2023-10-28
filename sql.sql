@@ -91,6 +91,6 @@ JOIN
 JOIN
     order_details ON food_order.id = order_details.order_id 
 JOIN
-    menu ON order_details.menu_id = menu.id 
+    menu ON order_details.menu_id = menu.id
 WHERE
-    customers.id = 1 AND menu.id = 1;
+    customers.id = 1 AND food_order.id = 1;
