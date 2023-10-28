@@ -76,3 +76,21 @@ CREATE TABLE ratings (
                          rating int CHECK (rating >= 1 AND rating <= 5),
                          review varchar(255)
 );
+
+--struk
+SELECT
+    customers.nama AS cust_name,
+    menu.menu_name AS menu_name,
+    menu.price AS price,
+    order_details.total_menu AS quantity,
+    (menu.price * order_details.total_menu) AS Total_Price
+FROM
+    food_order
+JOIN
+    customers ON food_order.customer_id = customers.id 
+JOIN
+    order_details ON food_order.id = order_details.order_id 
+JOIN
+    menu ON order_details.menu_id = menu.id 
+WHERE
+    customers.id = 1 AND menu.id = 1;
